@@ -152,6 +152,7 @@ class CloudWatch extends AbstractProcessingHandler
                 $this->addToBuffer($record);
             }
         }
+        $this->flushBuffer();
     }
 
     /**
