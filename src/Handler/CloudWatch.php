@@ -1,6 +1,6 @@
 <?php
 
-namespace Maxbanton\Cwh\Handler;
+namespace Caestepa05\Cwh\Handler;
 
 use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use Monolog\Formatter\LineFormatter;
@@ -144,8 +144,7 @@ class CloudWatch extends AbstractProcessingHandler
 
         foreach ($records as $record) {
             if ($this->currentDataAmount + $this->getMessageSize($record) >= $this->dataAmountLimit ||
-                count($this->buffer) >= $this->batchSize
-            ) {
+                count($this->buffer) >= $this->batchSize) {
                 $this->flushBuffer();
                 $this->addToBuffer($record);
             } else {
@@ -280,9 +279,9 @@ class CloudWatch extends AbstractProcessingHandler
         // fetch existing groups
         $existingGroups =
             $this
-                ->client
-                ->describeLogGroups(['logGroupNamePrefix' => $this->group])
-                ->get('logGroups');
+            ->client
+            ->describeLogGroups(['logGroupNamePrefix' => $this->group])
+            ->get('logGroups');
 
         // extract existing groups names
         $existingGroupsNames = array_map(
@@ -326,13 +325,13 @@ class CloudWatch extends AbstractProcessingHandler
         // fetch existing streams
         $existingStreams =
             $this
-                ->client
-                ->describeLogStreams(
-                    [
-                        'logGroupName' => $this->group,
-                        'logStreamNamePrefix' => $this->stream,
-                    ]
-                )->get('logStreams');
+            ->client
+            ->describeLogStreams(
+                [
+                    'logGroupName' => $this->group,
+                    'logStreamNamePrefix' => $this->stream,
+                ]
+            )->get('logStreams');
 
         // extract existing streams names
         $existingStreamsNames = array_map(

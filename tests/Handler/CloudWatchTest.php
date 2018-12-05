@@ -1,11 +1,11 @@
 <?php
 
-namespace Maxbanton\Cwh\Test\Handler;
+namespace Caestepa05\Cwh\Test\Handler;
 
 
 use Aws\CloudWatchLogs\CloudWatchLogsClient;
 use Aws\Result;
-use Maxbanton\Cwh\Handler\CloudWatch;
+use Caestepa05\Cwh\Handler\CloudWatch;
 use Monolog\Formatter\LineFormatter;
 use Monolog\Logger;
 use PHPUnit\Framework\TestCase;
@@ -37,19 +37,19 @@ class CloudWatchTest extends TestCase
     {
         $this->clientMock =
             $this
-                ->getMockBuilder(CloudWatchLogsClient::class)
-                ->setMethods(
-                    [
-                        'describeLogGroups',
-                        'CreateLogGroup',
-                        'PutRetentionPolicy',
-                        'DescribeLogStreams',
-                        'CreateLogStream',
-                        'PutLogEvents'
-                    ]
-                )
-                ->disableOriginalConstructor()
-                ->getMock();
+            ->getMockBuilder(CloudWatchLogsClient::class)
+            ->setMethods(
+                [
+                    'describeLogGroups',
+                    'CreateLogGroup',
+                    'PutRetentionPolicy',
+                    'DescribeLogStreams',
+                    'CreateLogStream',
+                    'PutLogEvents'
+                ]
+            )
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
     public function testInitializeWithExistingLogGroup()
@@ -333,10 +333,10 @@ class CloudWatchTest extends TestCase
 
         $this->awsResultMock =
             $this
-                ->getMockBuilder(Result::class)
-                ->setMethods(['get'])
-                ->disableOriginalConstructor()
-                ->getMock();
+            ->getMockBuilder(Result::class)
+            ->setMethods(['get'])
+            ->disableOriginalConstructor()
+            ->getMock();
     }
 
     private function getCUT($batchSize = 1000)
