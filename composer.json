@@ -1,5 +1,5 @@
 {
-    "name": "maxbanton/cwh",
+    "name": "caestepa05/cwh",
     "type": "library",
     "description": "AWS CloudWatch Handler for Monolog library",
     "keywords": [
@@ -16,8 +16,8 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/maxbanton/cwh/issues",
-        "source": "https://github.com/maxbanton/cwh"
+        "issues": "https://github.com/caestepa05/cwh/issues",
+        "source": "https://github.com/caestepa05/cwh"
     },
     "require": {
         "php": ">=5.6.0",
